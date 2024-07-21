@@ -9,3 +9,6 @@ https://caniuse.com/loading-lazy-attr
 
 # demo
 https://codepen.io/Florian-Prache/full/YzoqJBj
+
+# More tips?
+https://altitude-dev.com/fr/news
