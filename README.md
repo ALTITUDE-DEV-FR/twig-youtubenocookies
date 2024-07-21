@@ -5,3 +5,7 @@ https://github.com/verlok/vanilla-lazyload
 
 # loading="lazy" browser native support
 https://caniuse.com/loading-lazy-attr
+
+
+# demo
+https://codepen.io/Florian-Prache/full/YzoqJBj
