@@ -27,7 +27,9 @@ class LazyContentExtension extends AbstractExtension
         $dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         libxml_clear_errors();
 
-        // Iframes src to nocookies + lazyload
+        /**
+        * [IFRAMES] Transform all iframes youtube.com to youtube-nocookies.com and use Vanilla Lazyload JS or loading lazy !
+        */
         $iframes = $dom->getElementsByTagName('iframe');
         foreach ($iframes as $iframe) {
             $src = $iframe->getAttribute('src');
@@ -38,19 +40,31 @@ class LazyContentExtension extends AbstractExtension
             } else {
                 continue;
             }
+
+            // if you use a vanilla lazyload js or comment this
             $iframe->setAttribute('data-src', $newSrc);
             $iframe->removeAttribute('src');
             $iframe->setAttribute('class', trim($iframe->getAttribute('class') . ' lazy'));
+
+            // native browsers
+            $iframe->setAttribute('loading', 'lazy');
         }
 
-        // images src to data-src + lazyload
+        /**
+        * [Pictures] Vanilla Lazyload JS or Browser loading lazy
+        */
         $images = $dom->getElementsByTagName('img');
         foreach ($images as $img) {
             $src = $img->getAttribute('src');
             if ($src) {
+
+                // vanilla lazyload js method
                 $img->setAttribute('data-src', $src);
                 $img->removeAttribute('src');
                 $img->setAttribute('class', trim($img->getAttribute('class') . ' lazyload androModal'));
+
+                // for native browsers
+                $img->setAttribute('loading', 'lazy');
             }
         }
 
