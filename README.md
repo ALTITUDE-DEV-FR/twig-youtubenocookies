@@ -9,6 +9,7 @@ https://caniuse.com/loading-lazy-attr
 
 # demo
 https://codepen.io/Florian-Prache/full/YzoqJBj
+Website use https://infinity-area.com/
 
 # More tips?
 https://altitude-dev.com/fr/news
